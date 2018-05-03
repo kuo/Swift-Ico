@@ -1,0 +1,6 @@
+framework module Pods_IcoCenter {
+  umbrella header "Pods-IcoCenter-umbrella.h"
+
+  export *
+  module * { export * }
+}
