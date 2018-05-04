@@ -4,4 +4,5 @@ use_frameworks!
 
 target 'IcoCenter' do
   pod 'SnapKit', '~> 4.0.0'
+  pod 'DynamicColor', '~> 4.0.1'
 end

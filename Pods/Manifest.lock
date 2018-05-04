@@ -1,16 +1,20 @@
 PODS:
+  - DynamicColor (4.0.2)
   - SnapKit (4.0.0)
 
 DEPENDENCIES:
+  - DynamicColor (~> 4.0.1)
   - SnapKit (~> 4.0.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - DynamicColor
     - SnapKit
 
 SPEC CHECKSUMS:
+  DynamicColor: c7adcfe871781a2b39877a5774e452ba51b79eb3
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: 32999065d92f537647ca0fb5f84d09074f3cd38c
+PODFILE CHECKSUM: 8ddf8f06aac241ef7820bc566ed4e561335659d9
 
 COCOAPODS: 1.5.0

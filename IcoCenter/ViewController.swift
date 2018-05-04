@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import DynamicColor
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -16,10 +17,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let tableview = UITableView(frame: CGRect(x: 0, y: 20, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height), style: .grouped)
-        
+        let tableview = UITableView()
+        tableview.frame = CGRect(x: 0, y: 20, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
         tableview.delegate = self
         tableview.dataSource = self
+        tableview.separatorStyle = .none
         tableview.estimatedRowHeight = 44.0 //自動調整UITableView內cell的高度
         self.view.addSubview(tableview)
         
@@ -62,9 +64,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //個別Section Header的高度
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 80
+        return 40
     }
     
+    //個別Section Header的View
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let headerBg = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 40))
+        headerBg.backgroundColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_header_bg)
+        
+        let title = UILabel()
+        title.numberOfLines = 0
+        title.textColor = UIColor.white
+        title.text = "Title"
+        headerBg.addSubview(title)
+        title.snp.makeConstraints { (make) in
+            <#code#>
+        }
+        
+        return headerBg
+    }
     
     
     
