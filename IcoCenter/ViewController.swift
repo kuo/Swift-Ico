@@ -17,12 +17,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.navigationItem.title = "報幣"
+        
         let tableview = UITableView()
         tableview.frame = CGRect(x: 0, y: 20, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
         tableview.delegate = self
         tableview.dataSource = self
         tableview.separatorStyle = .none
-        tableview.estimatedRowHeight = 44.0 //自動調整UITableView內cell的高度
+        tableview.estimatedRowHeight = 144.0 //自動調整UITableView內cell的高度
+        //tableView.rowHeight = UITableViewAutomaticDimension
         self.view.addSubview(tableview)
         
     }
@@ -34,15 +38,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = HistoryCell(style: .default, reuseIdentifier: "OneCell")
+        //let cell = HistoryCell(style: .default, reuseIdentifier: "OneCell")
+        //var cell:UITableViewCell? = nil
         if(indexPath.section == 0) {
-            cell.oneLabel.text = "test"
+            let cell = CurrentInfoCell(style: .default, reuseIdentifier: "CurrentInfoCell")
+            //cell.oneLabel.text = "test"
+            return cell
         } else if(indexPath.section == 1) {
+            let cell = HistoryCell(style: .default, reuseIdentifier: "OneCell")
             cell.oneLabel.text = strarr[indexPath.row]
+            
+            return cell
         }
         
-        return cell
+        return UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        if indexPath.section == 0 {
+            return 150
+        } else {
+            return UITableViewAutomaticDimension
+        }
+    }
+
     
     //此TableView有幾組Section
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -76,13 +96,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let title = UILabel()
         title.numberOfLines = 0
         title.textColor = UIColor.white
-        title.text = "Title"
+        if section == 0 {
+            title.text = "即時匯率"
+        } else if section == 1 {
+            title.text = "前五個交易日"
+        }
+        
+        title.sizeToFit()
         headerBg.addSubview(title)
         title.snp.makeConstraints { (make) in
-            <#code#>
+            make.center.equalTo(headerBg)
         }
         
         return headerBg
+        
     }
     
     

@@ -15,6 +15,7 @@
 		CB06B729209B520500739571 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB06B728209B520500739571 /* Assets.xcassets */; };
 		CB06B72C209B520500739571 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB06B72A209B520500739571 /* LaunchScreen.storyboard */; };
 		CBA8867C209B5930006273F0 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA8867B209B5930006273F0 /* HistoryCell.swift */; };
+		CBA8867F209CC82B006273F0 /* CurrentInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA8867E209CC82B006273F0 /* CurrentInfoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		CB06B72B209B520500739571 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB06B72D209B520500739571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBA8867B209B5930006273F0 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		CBA8867E209CC82B006273F0 /* CurrentInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentInfoCell.swift; sourceTree = "<group>"; };
 		CEEC3A19379DA3593238ED3E /* Pods-IcoCenter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IcoCenter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IcoCenter/Pods-IcoCenter.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +92,7 @@
 		CB06B720209B520500739571 /* IcoCenter */ = {
 			isa = PBXGroup;
 			children = (
+				CBA8867D209CC805006273F0 /* cells */,
 				990777FF209C63DD007FE152 /* define */,
 				CB06B721209B520500739571 /* AppDelegate.swift */,
 				CB06B723209B520500739571 /* ViewController.swift */,
@@ -97,9 +100,17 @@
 				CB06B728209B520500739571 /* Assets.xcassets */,
 				CB06B72A209B520500739571 /* LaunchScreen.storyboard */,
 				CB06B72D209B520500739571 /* Info.plist */,
-				CBA8867B209B5930006273F0 /* HistoryCell.swift */,
 			);
 			path = IcoCenter;
+			sourceTree = "<group>";
+		};
+		CBA8867D209CC805006273F0 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				CBA8867B209B5930006273F0 /* HistoryCell.swift */,
+				CBA8867E209CC82B006273F0 /* CurrentInfoCell.swift */,
+			);
+			path = cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBA8867C209B5930006273F0 /* HistoryCell.swift in Sources */,
+				CBA8867F209CC82B006273F0 /* CurrentInfoCell.swift in Sources */,
 				99077801209C63EE007FE152 /* GlobalDefine.swift in Sources */,
 				CB06B724209B520500739571 /* ViewController.swift in Sources */,
 				CB06B722209B520500739571 /* AppDelegate.swift in Sources */,

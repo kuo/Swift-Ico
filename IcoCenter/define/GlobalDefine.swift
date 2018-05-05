@@ -13,5 +13,6 @@ class GlobalDefine {
         static let kColor_them_black:String!       = "#000000"
         static let kColor_theme_header_bg:String!  = "#424242"
         static let kColor_theme_gray_4:String!     = "#b3b3b3"
+        static let kColor_theme_orange:String!     = "#ff5722"
     }
 }
