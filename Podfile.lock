@@ -1,20 +1,60 @@
 PODS:
+  - Alamofire (4.7.2)
   - DynamicColor (4.0.2)
+  - Moya (11.0.2):
+    - Moya/Core (= 11.0.2)
+  - Moya/Core (11.0.2):
+    - Alamofire (~> 4.1)
+    - Result (~> 3.0)
+  - ObjectMapper (3.1.0)
+  - PKHUD (5.0.0)
+  - Result (3.2.4)
+  - RxCocoa (4.1.2):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.1.2)
   - SnapKit (4.0.0)
+  - SwiftChart (1.0.1)
+  - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.5)
   - DynamicColor (~> 4.0.1)
+  - Moya
+  - ObjectMapper (~> 3.1)
+  - PKHUD (~> 5.0)
+  - RxCocoa (~> 4.0)
+  - RxSwift (~> 4.0)
   - SnapKit (~> 4.0.0)
+  - SwiftChart
+  - SwiftyJSON
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Alamofire
     - DynamicColor
+    - Moya
+    - ObjectMapper
+    - PKHUD
+    - Result
+    - RxCocoa
+    - RxSwift
     - SnapKit
+    - SwiftChart
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   DynamicColor: c7adcfe871781a2b39877a5774e452ba51b79eb3
+  Moya: a725035953bc1c0eb1be505ab903984501d82440
+  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
+  PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
+  RxSwift: e49536837d9901277638493ea537394d4b55f570
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  SwiftChart: ba767a678d568a5ee22d419e146a0582865e1aff
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 8ddf8f06aac241ef7820bc566ed4e561335659d9
+PODFILE CHECKSUM: 2fed8ad3e619fbcf5524cfefce7ac445f8cc4815
 
 COCOAPODS: 1.5.0

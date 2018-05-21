@@ -9,6 +9,36 @@
 /* Begin PBXBuildFile section */
 		649457DF0BC6EAFB453B616B /* Pods_IcoCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4E99367AABA11D9EE0CC06C /* Pods_IcoCenter.framework */; };
 		99077801209C63EE007FE152 /* GlobalDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99077800209C63EE007FE152 /* GlobalDefine.swift */; };
+		CB001AF9209DBFB60029598F /* bar_chart.png in Resources */ = {isa = PBXBuildFile; fileRef = CB001AF8209DBFB60029598F /* bar_chart.png */; };
+		CB001AFB209DC17E0029598F /* icon_more.png in Resources */ = {isa = PBXBuildFile; fileRef = CB001AFA209DC17E0029598F /* icon_more.png */; };
+		CB001AFD20A0B91F0029598F /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001AFC20A0B91F0029598F /* TitleCell.swift */; };
+		CB001B0020A205C60029598F /* ExchangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001AFF20A205C60029598F /* ExchangeCell.swift */; };
+		CB001B0220A351740029598F /* img_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CB001B0120A351740029598F /* img_arrow.png */; };
+		CB001B0520A49DD10029598F /* WebApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B0420A49DD10029598F /* WebApiService.swift */; };
+		CB001B0720A4A1810029598F /* MyNetworkLogPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B0620A4A1810029598F /* MyNetworkLogPlugin.swift */; };
+		CB001B0C20A4A34A0029598F /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B0B20A4A34A0029598F /* BasePresenter.swift */; };
+		CB001B0F20A4A3B10029598F /* BaseViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B0E20A4A3B10029598F /* BaseViewProtocol.swift */; };
+		CB001B1120A4A3F10029598F /* MainViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B1020A4A3F10029598F /* MainViewProtocol.swift */; };
+		CB001B1320A4A5BD0029598F /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B1220A4A5BD0029598F /* MainViewPresenter.swift */; };
+		CB001B1620A4A91D0029598F /* BaseResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B1520A4A91D0029598F /* BaseResponseModel.swift */; };
+		CB001B1820A4AA390029598F /* CurrentPriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B1720A4AA390029598F /* CurrentPriceModel.swift */; };
+		CB001B1A20A88FE10029598F /* DayExchangeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B1920A88FE10029598F /* DayExchangeDataModel.swift */; };
+		CB001B1D20AB4D7B0029598F /* GPRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B1C20AB4D7B0029598F /* GPRouter.swift */; };
+		CB001B1F20AB4DA20029598F /* MainNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B1E20AB4DA20029598F /* MainNavigator.swift */; };
+		CB001B2120AB4EEA0029598F /* TokenTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B2020AB4EEA0029598F /* TokenTableVC.swift */; };
+		CB001B2420AB52720029598F /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B2320AB52720029598F /* TransitionManager.swift */; };
+		CB001B2620AC8F090029598F /* ChooseTokenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B2520AC8F090029598F /* ChooseTokenCell.swift */; };
+		CB001B2820AC912B0029598F /* bitcoin.png in Resources */ = {isa = PBXBuildFile; fileRef = CB001B2720AC912B0029598F /* bitcoin.png */; };
+		CB001B2B20ADF4E00029598F /* TokenObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B2A20ADF4E00029598F /* TokenObject.swift */; };
+		CB001B2E20ADFE450029598F /* litecoin.png in Resources */ = {isa = PBXBuildFile; fileRef = CB001B2C20ADFE450029598F /* litecoin.png */; };
+		CB001B2F20ADFE450029598F /* bitcoin_cash.png in Resources */ = {isa = PBXBuildFile; fileRef = CB001B2D20ADFE450029598F /* bitcoin_cash.png */; };
+		CB001B3220ADFEE70029598F /* mithril.png in Resources */ = {isa = PBXBuildFile; fileRef = CB001B3020ADFEE70029598F /* mithril.png */; };
+		CB001B3320ADFEE70029598F /* ethereum.png in Resources */ = {isa = PBXBuildFile; fileRef = CB001B3120ADFEE70029598F /* ethereum.png */; };
+		CB001B3520AE00B50029598F /* icon_litecoin.png in Resources */ = {isa = PBXBuildFile; fileRef = CB001B3420AE00B50029598F /* icon_litecoin.png */; };
+		CB001B3720AFE6920029598F /* PopViewCallbackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B3620AFE6920029598F /* PopViewCallbackProtocol.swift */; };
+		CB001B3920B047CA0029598F /* MoreInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B3820B047C90029598F /* MoreInfoCell.swift */; };
+		CB001B3C20B053600029598F /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B3B20B053600029598F /* ChartVC.swift */; };
+		CB001B3E20B0557E0029598F /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B3D20B0557E0029598F /* ViewController+Extension.swift */; };
 		CB06B722209B520500739571 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB06B721209B520500739571 /* AppDelegate.swift */; };
 		CB06B724209B520500739571 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB06B723209B520500739571 /* ViewController.swift */; };
 		CB06B727209B520500739571 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB06B725209B520500739571 /* Main.storyboard */; };
@@ -22,6 +52,36 @@
 		72C6C9FD39ECA86ED8047D4C /* Pods-IcoCenter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IcoCenter.release.xcconfig"; path = "Pods/Target Support Files/Pods-IcoCenter/Pods-IcoCenter.release.xcconfig"; sourceTree = "<group>"; };
 		99077800209C63EE007FE152 /* GlobalDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalDefine.swift; sourceTree = "<group>"; };
 		B4E99367AABA11D9EE0CC06C /* Pods_IcoCenter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IcoCenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB001AF8209DBFB60029598F /* bar_chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_chart.png; sourceTree = "<group>"; };
+		CB001AFA209DC17E0029598F /* icon_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_more.png; sourceTree = "<group>"; };
+		CB001AFC20A0B91F0029598F /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
+		CB001AFF20A205C60029598F /* ExchangeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeCell.swift; sourceTree = "<group>"; };
+		CB001B0120A351740029598F /* img_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_arrow.png; sourceTree = "<group>"; };
+		CB001B0420A49DD10029598F /* WebApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebApiService.swift; sourceTree = "<group>"; };
+		CB001B0620A4A1810029598F /* MyNetworkLogPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNetworkLogPlugin.swift; sourceTree = "<group>"; };
+		CB001B0B20A4A34A0029598F /* BasePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
+		CB001B0E20A4A3B10029598F /* BaseViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewProtocol.swift; sourceTree = "<group>"; };
+		CB001B1020A4A3F10029598F /* MainViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewProtocol.swift; sourceTree = "<group>"; };
+		CB001B1220A4A5BD0029598F /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
+		CB001B1520A4A91D0029598F /* BaseResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponseModel.swift; sourceTree = "<group>"; };
+		CB001B1720A4AA390029598F /* CurrentPriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPriceModel.swift; sourceTree = "<group>"; };
+		CB001B1920A88FE10029598F /* DayExchangeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayExchangeDataModel.swift; sourceTree = "<group>"; };
+		CB001B1C20AB4D7B0029598F /* GPRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPRouter.swift; sourceTree = "<group>"; };
+		CB001B1E20AB4DA20029598F /* MainNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigator.swift; sourceTree = "<group>"; };
+		CB001B2020AB4EEA0029598F /* TokenTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenTableVC.swift; sourceTree = "<group>"; };
+		CB001B2320AB52720029598F /* TransitionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
+		CB001B2520AC8F090029598F /* ChooseTokenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTokenCell.swift; sourceTree = "<group>"; };
+		CB001B2720AC912B0029598F /* bitcoin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bitcoin.png; sourceTree = "<group>"; };
+		CB001B2A20ADF4E00029598F /* TokenObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenObject.swift; sourceTree = "<group>"; };
+		CB001B2C20ADFE450029598F /* litecoin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = litecoin.png; sourceTree = "<group>"; };
+		CB001B2D20ADFE450029598F /* bitcoin_cash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bitcoin_cash.png; sourceTree = "<group>"; };
+		CB001B3020ADFEE70029598F /* mithril.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mithril.png; sourceTree = "<group>"; };
+		CB001B3120ADFEE70029598F /* ethereum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ethereum.png; sourceTree = "<group>"; };
+		CB001B3420AE00B50029598F /* icon_litecoin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_litecoin.png; sourceTree = "<group>"; };
+		CB001B3620AFE6920029598F /* PopViewCallbackProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopViewCallbackProtocol.swift; sourceTree = "<group>"; };
+		CB001B3820B047C90029598F /* MoreInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoCell.swift; sourceTree = "<group>"; };
+		CB001B3B20B053600029598F /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
+		CB001B3D20B0557E0029598F /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		CB06B71E209B520500739571 /* IcoCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IcoCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB06B721209B520500739571 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB06B723209B520500739571 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +131,102 @@
 			path = define;
 			sourceTree = "<group>";
 		};
+		CB001AF7209DBFA40029598F /* images */ = {
+			isa = PBXGroup;
+			children = (
+				CB001B3420AE00B50029598F /* icon_litecoin.png */,
+				CB001B3120ADFEE70029598F /* ethereum.png */,
+				CB001B3020ADFEE70029598F /* mithril.png */,
+				CB001B2D20ADFE450029598F /* bitcoin_cash.png */,
+				CB001B2C20ADFE450029598F /* litecoin.png */,
+				CB001B2720AC912B0029598F /* bitcoin.png */,
+				CB001B0120A351740029598F /* img_arrow.png */,
+				CB001AFA209DC17E0029598F /* icon_more.png */,
+				CB001AF8209DBFB60029598F /* bar_chart.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		CB001AFE20A1FFDA0029598F /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CB001B3D20B0557E0029598F /* ViewController+Extension.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		CB001B0320A49DAB0029598F /* webapi */ = {
+			isa = PBXGroup;
+			children = (
+				CB001B0420A49DD10029598F /* WebApiService.swift */,
+				CB001B0620A4A1810029598F /* MyNetworkLogPlugin.swift */,
+			);
+			path = webapi;
+			sourceTree = "<group>";
+		};
+		CB001B0A20A4A2E70029598F /* presenters */ = {
+			isa = PBXGroup;
+			children = (
+				CB001B0B20A4A34A0029598F /* BasePresenter.swift */,
+				CB001B1220A4A5BD0029598F /* MainViewPresenter.swift */,
+			);
+			path = presenters;
+			sourceTree = "<group>";
+		};
+		CB001B0D20A4A39E0029598F /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CB001B0E20A4A3B10029598F /* BaseViewProtocol.swift */,
+				CB001B1020A4A3F10029598F /* MainViewProtocol.swift */,
+				CB001B3620AFE6920029598F /* PopViewCallbackProtocol.swift */,
+			);
+			path = protocols;
+			sourceTree = "<group>";
+		};
+		CB001B1420A4A8050029598F /* models */ = {
+			isa = PBXGroup;
+			children = (
+				CB001B1520A4A91D0029598F /* BaseResponseModel.swift */,
+				CB001B1720A4AA390029598F /* CurrentPriceModel.swift */,
+				CB001B1920A88FE10029598F /* DayExchangeDataModel.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		CB001B1B20AB4D5B0029598F /* navigators */ = {
+			isa = PBXGroup;
+			children = (
+				CB001B1C20AB4D7B0029598F /* GPRouter.swift */,
+				CB001B1E20AB4DA20029598F /* MainNavigator.swift */,
+			);
+			path = navigators;
+			sourceTree = "<group>";
+		};
+		CB001B2220AB52460029598F /* animators */ = {
+			isa = PBXGroup;
+			children = (
+				CB001B2320AB52720029598F /* TransitionManager.swift */,
+			);
+			path = animators;
+			sourceTree = "<group>";
+		};
+		CB001B2920ADF4C50029598F /* enumerations */ = {
+			isa = PBXGroup;
+			children = (
+				CB001B2A20ADF4E00029598F /* TokenObject.swift */,
+			);
+			path = enumerations;
+			sourceTree = "<group>";
+		};
+		CB001B3A20B0510B0029598F /* vcs */ = {
+			isa = PBXGroup;
+			children = (
+				CB001B2020AB4EEA0029598F /* TokenTableVC.swift */,
+				CB001B3B20B053600029598F /* ChartVC.swift */,
+			);
+			path = vcs;
+			sourceTree = "<group>";
+		};
 		CB06B715209B520500739571 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +248,16 @@
 		CB06B720209B520500739571 /* IcoCenter */ = {
 			isa = PBXGroup;
 			children = (
+				CB001B3A20B0510B0029598F /* vcs */,
+				CB001B2920ADF4C50029598F /* enumerations */,
+				CB001B2220AB52460029598F /* animators */,
+				CB001B1B20AB4D5B0029598F /* navigators */,
+				CB001B1420A4A8050029598F /* models */,
+				CB001B0D20A4A39E0029598F /* protocols */,
+				CB001B0A20A4A2E70029598F /* presenters */,
+				CB001B0320A49DAB0029598F /* webapi */,
+				CB001AFE20A1FFDA0029598F /* extensions */,
+				CB001AF7209DBFA40029598F /* images */,
 				CBA8867D209CC805006273F0 /* cells */,
 				990777FF209C63DD007FE152 /* define */,
 				CB06B721209B520500739571 /* AppDelegate.swift */,
@@ -109,6 +275,10 @@
 			children = (
 				CBA8867B209B5930006273F0 /* HistoryCell.swift */,
 				CBA8867E209CC82B006273F0 /* CurrentInfoCell.swift */,
+				CB001AFC20A0B91F0029598F /* TitleCell.swift */,
+				CB001AFF20A205C60029598F /* ExchangeCell.swift */,
+				CB001B2520AC8F090029598F /* ChooseTokenCell.swift */,
+				CB001B3820B047C90029598F /* MoreInfoCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -176,7 +346,16 @@
 			files = (
 				CB06B72C209B520500739571 /* LaunchScreen.storyboard in Resources */,
 				CB06B729209B520500739571 /* Assets.xcassets in Resources */,
+				CB001AF9209DBFB60029598F /* bar_chart.png in Resources */,
+				CB001B0220A351740029598F /* img_arrow.png in Resources */,
+				CB001B2820AC912B0029598F /* bitcoin.png in Resources */,
 				CB06B727209B520500739571 /* Main.storyboard in Resources */,
+				CB001B2E20ADFE450029598F /* litecoin.png in Resources */,
+				CB001B3520AE00B50029598F /* icon_litecoin.png in Resources */,
+				CB001B3220ADFEE70029598F /* mithril.png in Resources */,
+				CB001B3320ADFEE70029598F /* ethereum.png in Resources */,
+				CB001B2F20ADFE450029598F /* bitcoin_cash.png in Resources */,
+				CB001AFB209DC17E0029598F /* icon_more.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,13 +369,31 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-IcoCenter/Pods-IcoCenter-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/DynamicColor/DynamicColor.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftChart/SwiftChart.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicColor.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftChart.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -228,11 +425,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB001B0720A4A1810029598F /* MyNetworkLogPlugin.swift in Sources */,
+				CB001B1A20A88FE10029598F /* DayExchangeDataModel.swift in Sources */,
+				CB001B1620A4A91D0029598F /* BaseResponseModel.swift in Sources */,
+				CB001B0C20A4A34A0029598F /* BasePresenter.swift in Sources */,
+				CB001B1F20AB4DA20029598F /* MainNavigator.swift in Sources */,
+				CB001B0F20A4A3B10029598F /* BaseViewProtocol.swift in Sources */,
+				CB001B1120A4A3F10029598F /* MainViewProtocol.swift in Sources */,
+				CB001B2620AC8F090029598F /* ChooseTokenCell.swift in Sources */,
+				CB001AFD20A0B91F0029598F /* TitleCell.swift in Sources */,
+				CB001B3C20B053600029598F /* ChartVC.swift in Sources */,
+				CB001B0020A205C60029598F /* ExchangeCell.swift in Sources */,
 				CBA8867C209B5930006273F0 /* HistoryCell.swift in Sources */,
+				CB001B3720AFE6920029598F /* PopViewCallbackProtocol.swift in Sources */,
+				CB001B3920B047CA0029598F /* MoreInfoCell.swift in Sources */,
 				CBA8867F209CC82B006273F0 /* CurrentInfoCell.swift in Sources */,
+				CB001B2B20ADF4E00029598F /* TokenObject.swift in Sources */,
+				CB001B1820A4AA390029598F /* CurrentPriceModel.swift in Sources */,
+				CB001B2120AB4EEA0029598F /* TokenTableVC.swift in Sources */,
+				CB001B3E20B0557E0029598F /* ViewController+Extension.swift in Sources */,
+				CB001B1D20AB4D7B0029598F /* GPRouter.swift in Sources */,
+				CB001B1320A4A5BD0029598F /* MainViewPresenter.swift in Sources */,
 				99077801209C63EE007FE152 /* GlobalDefine.swift in Sources */,
+				CB001B2420AB52720029598F /* TransitionManager.swift in Sources */,
 				CB06B724209B520500739571 /* ViewController.swift in Sources */,
 				CB06B722209B520500739571 /* AppDelegate.swift in Sources */,
+				CB001B0520A49DD10029598F /* WebApiService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
