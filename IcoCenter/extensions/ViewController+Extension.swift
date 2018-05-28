@@ -10,10 +10,15 @@ import Foundation
 import UIKit
 
 extension UIViewController {
+    
     func setNavigationBackButton(title:String) {
         self.navigationController?.navigationBar.tintColor = UIColor.white
         let backButton = UIBarButtonItem()
         backButton.title = title
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+    }
+    
+    func setNavigationTitle(title:String) {
+        self.navigationItem.title = title
     }
 }

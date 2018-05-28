@@ -10,8 +10,12 @@ import Foundation
 import Moya
 
 public enum WebApiService {
-    case CurrentPrice(tokenName:String)             //取得現在價格
-    case LaseFiveDaysExchangeData(tokenName:String) //最近五個交易日
+    //取得現在價格
+    case CurrentPrice(tokenName:String)
+    //最近五個交易日
+    case LaseFiveDaysExchangeData(tokenName:String)
+    //取一段期間內的資料
+    case ChartData(tokenName:String, queryType:Int)
 }
 
 extension WebApiService: TargetType {
@@ -23,12 +27,20 @@ extension WebApiService: TargetType {
             return .requestPlain
         case .LaseFiveDaysExchangeData(_):
             return .requestPlain
+        case .ChartData(_, _):
+            return .requestPlain
         }
     }
     
     public var baseURL: URL {
         let myBaseUrl  = GlobalDefine.ApiBaseUrl.BaseUrl
-        return URL(string: myBaseUrl!)!
+        switch self {
+        case .ChartData(let token, let type):
+            return URL(string: myBaseUrl! + "chartData/token?id=\(token)&type=\(type)")!
+        default:
+            return URL(string: myBaseUrl!)!
+        }
+        
     }
     
     public var path: String {
@@ -37,6 +49,8 @@ extension WebApiService: TargetType {
             return "tokenId/\(token)"
         case .LaseFiveDaysExchangeData(let token):
             return "last/\(token)"
+        case .ChartData(_, _):
+            return ""
         }
         
     }
@@ -52,5 +66,30 @@ extension WebApiService: TargetType {
     public var headers: [String : String]? {
         let apiHeader: [String: String] = [:]
         return apiHeader
+    }
+    
+    var parameterEncoding: ParameterEncoding {
+        switch self {
+        case .ChartData(let token, let type):
+            //return MyURLEncoding.queryString
+            return URLEncoding.queryString
+        default:
+            return JSONEncoding.default
+        }
+    }
+}
+
+extension String {
+    
+    //将原始的url编码为合法的url
+    func urlEncoded() -> String {
+        let encodeUrlString = self.addingPercentEncoding(withAllowedCharacters:
+            .urlQueryAllowed)
+        return encodeUrlString ?? ""
+    }
+    
+    //将编码后的url转换回原始的url
+    func urlDecoded() -> String {
+        return self.removingPercentEncoding ?? ""
     }
 }

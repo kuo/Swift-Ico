@@ -28,8 +28,13 @@ struct AppNavigator:AppNavigation {
     }
     
     func navigate(nav: Navigation, fromVC: UIViewController, toVC: UIViewController) {
-        toVC.view.backgroundColor = UIColor.white
+        
         fromVC.navigationController?.pushViewController(toVC, animated: true)
         
+        toVC.view.backgroundColor = UIColor.white
+        toVC.navigationController?.navigationBar.tintColor = UIColor.white
+        let backButton = UIBarButtonItem()
+        backButton.title = "返回"
+        toVC.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
 }

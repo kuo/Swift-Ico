@@ -20,6 +20,8 @@ class MoreInfoCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.contentView.backgroundColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_gray_9)
+        
         let more = UILabel()
         more.text = "More"
         more.textColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_orange)

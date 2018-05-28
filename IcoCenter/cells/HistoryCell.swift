@@ -24,6 +24,8 @@ class HistoryCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.contentView.backgroundColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_gray_9)
+        
         dateLabel.numberOfLines = 0
         dateLabel.textColor = UIColor.black
         self.addSubview(dateLabel)

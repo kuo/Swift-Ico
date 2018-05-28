@@ -39,6 +39,9 @@
 		CB001B3920B047CA0029598F /* MoreInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B3820B047C90029598F /* MoreInfoCell.swift */; };
 		CB001B3C20B053600029598F /* ChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B3B20B053600029598F /* ChartVC.swift */; };
 		CB001B3E20B0557E0029598F /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B3D20B0557E0029598F /* ViewController+Extension.swift */; };
+		CB001B4020B7077C0029598F /* ChartViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B3F20B7077C0029598F /* ChartViewPresenter.swift */; };
+		CB001B4220B709020029598F /* ChartViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B4120B709020029598F /* ChartViewProtocol.swift */; };
+		CB001B4520B9106C0029598F /* DurationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B4420B9106C0029598F /* DurationDataModel.swift */; };
 		CB06B722209B520500739571 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB06B721209B520500739571 /* AppDelegate.swift */; };
 		CB06B724209B520500739571 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB06B723209B520500739571 /* ViewController.swift */; };
 		CB06B727209B520500739571 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB06B725209B520500739571 /* Main.storyboard */; };
@@ -82,6 +85,9 @@
 		CB001B3820B047C90029598F /* MoreInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoCell.swift; sourceTree = "<group>"; };
 		CB001B3B20B053600029598F /* ChartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartVC.swift; sourceTree = "<group>"; };
 		CB001B3D20B0557E0029598F /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
+		CB001B3F20B7077C0029598F /* ChartViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewPresenter.swift; sourceTree = "<group>"; };
+		CB001B4120B709020029598F /* ChartViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewProtocol.swift; sourceTree = "<group>"; };
+		CB001B4420B9106C0029598F /* DurationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationDataModel.swift; sourceTree = "<group>"; };
 		CB06B71E209B520500739571 /* IcoCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IcoCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB06B721209B520500739571 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB06B723209B520500739571 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +175,7 @@
 			children = (
 				CB001B0B20A4A34A0029598F /* BasePresenter.swift */,
 				CB001B1220A4A5BD0029598F /* MainViewPresenter.swift */,
+				CB001B3F20B7077C0029598F /* ChartViewPresenter.swift */,
 			);
 			path = presenters;
 			sourceTree = "<group>";
@@ -179,6 +186,7 @@
 				CB001B0E20A4A3B10029598F /* BaseViewProtocol.swift */,
 				CB001B1020A4A3F10029598F /* MainViewProtocol.swift */,
 				CB001B3620AFE6920029598F /* PopViewCallbackProtocol.swift */,
+				CB001B4120B709020029598F /* ChartViewProtocol.swift */,
 			);
 			path = protocols;
 			sourceTree = "<group>";
@@ -189,6 +197,7 @@
 				CB001B1520A4A91D0029598F /* BaseResponseModel.swift */,
 				CB001B1720A4AA390029598F /* CurrentPriceModel.swift */,
 				CB001B1920A88FE10029598F /* DayExchangeDataModel.swift */,
+				CB001B4420B9106C0029598F /* DurationDataModel.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -426,12 +435,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB001B0720A4A1810029598F /* MyNetworkLogPlugin.swift in Sources */,
+				CB001B4020B7077C0029598F /* ChartViewPresenter.swift in Sources */,
 				CB001B1A20A88FE10029598F /* DayExchangeDataModel.swift in Sources */,
 				CB001B1620A4A91D0029598F /* BaseResponseModel.swift in Sources */,
 				CB001B0C20A4A34A0029598F /* BasePresenter.swift in Sources */,
 				CB001B1F20AB4DA20029598F /* MainNavigator.swift in Sources */,
 				CB001B0F20A4A3B10029598F /* BaseViewProtocol.swift in Sources */,
 				CB001B1120A4A3F10029598F /* MainViewProtocol.swift in Sources */,
+				CB001B4520B9106C0029598F /* DurationDataModel.swift in Sources */,
 				CB001B2620AC8F090029598F /* ChooseTokenCell.swift in Sources */,
 				CB001AFD20A0B91F0029598F /* TitleCell.swift in Sources */,
 				CB001B3C20B053600029598F /* ChartVC.swift in Sources */,
@@ -449,6 +460,7 @@
 				99077801209C63EE007FE152 /* GlobalDefine.swift in Sources */,
 				CB001B2420AB52720029598F /* TransitionManager.swift in Sources */,
 				CB06B724209B520500739571 /* ViewController.swift in Sources */,
+				CB001B4220B709020029598F /* ChartViewProtocol.swift in Sources */,
 				CB06B722209B520500739571 /* AppDelegate.swift in Sources */,
 				CB001B0520A49DD10029598F /* WebApiService.swift in Sources */,
 			);

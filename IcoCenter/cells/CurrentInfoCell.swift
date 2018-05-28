@@ -24,10 +24,10 @@ class CurrentInfoCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.contentView.backgroundColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_gray_9)
         
         currentPriceLabel.textColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_orange)
         currentPriceLabel.textAlignment = .center
-        currentPriceLabel.text = "39.97"
         currentPriceLabel.font = currentPriceLabel.font.withSize(40)
         currentPriceLabel.sizeToFit()
         self.addSubview(currentPriceLabel)
@@ -39,7 +39,6 @@ class CurrentInfoCell: UITableViewCell {
         pricebefore_hour_1.numberOfLines = 2
         pricebefore_hour_1.textColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_orange)
         pricebefore_hour_1.textAlignment = .left
-        pricebefore_hour_1.text = "1h漲幅\n39.97"
         pricebefore_hour_1.font = pricebefore_hour_1.font.withSize(16)
         pricebefore_hour_1.sizeToFit()
         self.addSubview(pricebefore_hour_1)
@@ -51,7 +50,6 @@ class CurrentInfoCell: UITableViewCell {
         pricebefore_hour_24.numberOfLines = 2
         pricebefore_hour_24.textColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_orange)
         pricebefore_hour_24.textAlignment = .right
-        pricebefore_hour_24.text = "24hr漲幅\n39.97"
         pricebefore_hour_24.font = pricebefore_hour_1.font.withSize(16)
         pricebefore_hour_24.sizeToFit()
         self.addSubview(pricebefore_hour_24)
@@ -76,7 +74,37 @@ class CurrentInfoCell: UITableViewCell {
         guard let data = model else {return}
         
         currentPriceLabel.text = data.priceUsd
-        pricebefore_hour_1.text = "1hr漲幅\n" + data.percentChange_1h + "%"
-        pricebefore_hour_24.text = "24hr漲幅\n" + data.percentChange_24h + "%"
+        
+        let stringAttributes: [NSAttributedStringKey : Any] = [.foregroundColor : UIColor.white]
+        let stringAttributesUp: [NSAttributedStringKey : Any] = [.foregroundColor : UIColor.red]
+        let stringAttributesDown: [NSAttributedStringKey : Any] = [.foregroundColor : UIColor.green]
+        
+        let string_1hr = NSAttributedString(string: "1小時漲幅\n", attributes: stringAttributes)
+        let string_24hr = NSAttributedString(string: "24小時漲幅\n", attributes: stringAttributes)
+        var string_gains_1hr = NSAttributedString()
+        var string_gains_24hr = NSAttributedString()
+        
+        if data.percentChange_1h.starts(with: "-") {
+            string_gains_1hr = NSAttributedString(string: data.percentChange_1h + "%", attributes: stringAttributesDown)
+        } else {
+            string_gains_1hr = NSAttributedString(string: data.percentChange_1h + "%", attributes: stringAttributesUp)
+        }
+        
+        if data.percentChange_24h.starts(with: "-") {
+            string_gains_24hr = NSAttributedString(string: data.percentChange_1h + "%", attributes: stringAttributesDown)
+        } else {
+            string_gains_24hr = NSAttributedString(string: data.percentChange_1h + "%", attributes: stringAttributesUp)
+        }
+        
+        let attrString_1h = NSMutableAttributedString()
+        attrString_1h.append(string_1hr)
+        attrString_1h.append(string_gains_1hr)
+        
+        let attrString_24h = NSMutableAttributedString()
+        attrString_24h.append(string_24hr)
+        attrString_24h.append(string_gains_24hr)
+        
+        pricebefore_hour_1.attributedText = attrString_1h
+        pricebefore_hour_24.attributedText = attrString_24h
     }
 }

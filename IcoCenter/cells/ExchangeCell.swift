@@ -24,6 +24,8 @@ class ExchangeCell: UITableViewCell, UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
        
+        self.contentView.backgroundColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_gray_9)
+        
         //Token 欄位
         let tokenView = UIView()
         self.addSubview(tokenView)

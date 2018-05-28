@@ -27,7 +27,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         let moreButton = UIBarButtonItem(image: UIImage(named: "icon_more")?.withRenderingMode(.alwaysOriginal), landscapeImagePhone: nil, style: .done, target: self, action: #selector(playTapped))
         self.navigationItem.rightBarButtonItems = [moreButton]
-        self.navigationItem.title = "報幣(BitCoin)"
+        setNavigationTitle(title: "報幣(BitCoin)")
+        //self.navigationItem.title = "報幣(BitCoin)"
         
         tableview.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
         tableview.delegate = self
@@ -55,6 +56,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.navigationController?.pushViewController(toVC, animated: true)
     }
     
+    //delegate: 選擇查詢貨幣種類
     func chooseTokenComplete(vc: UIViewController) {
         self.navigationController?.popToViewController(self, animated: true)
     }
@@ -96,7 +98,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         if indexPath.section == 0 {
-            return 150
+            return 120
         } else if indexPath.section == 1 {
             return 180
         } else {
