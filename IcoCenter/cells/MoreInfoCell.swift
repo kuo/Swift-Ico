@@ -23,14 +23,16 @@ class MoreInfoCell: UITableViewCell {
         self.contentView.backgroundColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_gray_9)
         
         let more = UILabel()
-        more.text = "More"
-        more.textColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_orange)
+        more.text = ">>>更多"
+        more.font = more.font.withSize(20)
+        more.textColor = UIColor.white
         more.sizeToFit()
         more.textAlignment = .right
         self.addSubview(more)
         
         more.snp.makeConstraints { (make) in
-            make.right.equalToSuperview().offset(-10)
+            make.right.equalToSuperview().offset(-30)
+            make.bottom.equalToSuperview().offset(-10)
         }
     }
     

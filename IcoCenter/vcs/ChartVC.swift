@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import SwiftChart
+import RxSwift
+import RxCocoa
 
 class ChartVC: UIViewController, ChartDelegate {
     
@@ -17,6 +19,7 @@ class ChartVC: UIViewController, ChartDelegate {
     let presenter = ChartViewPresenter()
     let chart = Chart()
     let scope = UILabel()
+    var disposeBag = DisposeBag()
     
     init(tokenName:String) {
         self.mTokenName = tokenName
@@ -31,24 +34,17 @@ class ChartVC: UIViewController, ChartDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let choiceBtn = UIButton()
-        choiceBtn.backgroundColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_gray_4)
-        choiceBtn.setTitleColor(UIColor(hexString:GlobalDefine.GPColors.kColor_theme_orange), for: .normal)
-        choiceBtn.setTitle("近1週", for: .normal)
-        choiceBtn.contentHorizontalAlignment = .left
-        choiceBtn.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0)
-        self.view.addSubview(choiceBtn)
-        choiceBtn.snp.makeConstraints { (make) in
-            make.width.lessThanOrEqualTo(self.view)
-            make.height.equalTo(36)
-            make.top.equalToSuperview().offset(80)
-            make.right.equalToSuperview().offset(-25)
-            make.left.equalToSuperview().offset(25)
-        }
+        setNavigationTitle(title: "線圖")
+        setNavigationBackButton(title: "返回")
+        
+        initTopBtn()
         
         //折線圖
         chart.delegate = self
         chart.labelFont = UIFont.systemFont(ofSize: 10)
+        chart.gridColor = UIColor.white
+        chart.axesColor = UIColor.white
+        chart.labelColor = UIColor.white
         self.view.addSubview(chart)
         
         chart.snp.makeConstraints { (make) in
@@ -61,28 +57,18 @@ class ChartVC: UIViewController, ChartDelegate {
         }
         
         //scope value
-        let text = UILabel()
-        text.text = "範圍"
-        text.textColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_gray_9)
-        text.sizeToFit()
-        self.view.addSubview(text)
-        text.snp.makeConstraints { (make) in
-            make.height.equalTo(20)
-            make.left.equalToSuperview().offset(35)
-            make.top.equalTo(chart.snp.bottom).offset(25)
-        }
-        
-        scope.textColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_gray_9)
+        scope.textColor = UIColor.white
         scope.sizeToFit()
         self.view.addSubview(scope)
         scope.snp.makeConstraints { (make) in
             make.height.equalTo(20)
             make.left.equalToSuperview().offset(35)
-            make.top.equalTo(text.snp.bottom).offset(2)
+            make.top.equalTo(chart.snp.bottom).offset(25)
         }
         
         presenter.attachView(v: self)
-        presenter.getDurationData(token: "bitcoin", type: 1)
+        startLoadingView()
+        presenter.getDurationData(token: self.mTokenName, type: 1)
 
     }
     
@@ -95,6 +81,36 @@ class ChartVC: UIViewController, ChartDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func initTopBtn() {
+        let choiceBtn = UIButton()
+        choiceBtn.backgroundColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_gray_5)
+        choiceBtn.setTitleColor(UIColor(hexString:GlobalDefine.GPColors.kColor_theme_white_50), for: .normal)
+        choiceBtn.setTitle("近1週", for: .normal)
+        choiceBtn.contentHorizontalAlignment = .left
+        choiceBtn.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0)
+        self.view.addSubview(choiceBtn)
+        choiceBtn.snp.makeConstraints { (make) in
+            make.width.lessThanOrEqualTo(self.view)
+            make.height.equalTo(36)
+            make.top.equalToSuperview().offset(90)
+            make.right.equalToSuperview().offset(-25)
+            make.left.equalToSuperview().offset(25)
+        }
+        
+        choiceBtn.rx.tap.bind(onNext: { () in
+            
+            let queryDuration = ["Cancel", "近一週", "近一個月"]
+            self.present(GPAlertController.actionSheet(title: "", msg: "區間", buttons: queryDuration, tapBlock: { (action, index) -> Void in
+                
+                print("index = \(index)")
+                
+                
+            }), animated: true, completion: nil)
+            
+        }).disposed(by: disposeBag)
+        
+    }
+    
     /**
      * Chart touch delegate
      */
@@ -103,6 +119,7 @@ class ChartVC: UIViewController, ChartDelegate {
             let numberFormatter = NumberFormatter()
             numberFormatter.minimumFractionDigits = 2
             numberFormatter.maximumFractionDigits = 2
+            numberFormatter.minimumIntegerDigits = 1
             valueLabel.text = numberFormatter.string(from: NSNumber(value: value))
             
             valueLabel.snp.remakeConstraints({ (make) in
@@ -145,7 +162,7 @@ class ChartVC: UIViewController, ChartDelegate {
         }
         
         valueLabel.numberOfLines = 0
-        valueLabel.textColor = UIColor.black
+        valueLabel.textColor = UIColor.white
         valueLabel.text = ""
         valueLabel.textAlignment = .right
         valueLabel.font = UIFont.systemFont(ofSize: 12)
@@ -160,7 +177,8 @@ class ChartVC: UIViewController, ChartDelegate {
     func updateScopeValue(max:Float, min:Float) {
         let numberFormatter = NumberFormatter()
         numberFormatter.maximumFractionDigits = 2
-        scope.text = numberFormatter.string(from: NSNumber(value: min))! + " ~ " + numberFormatter.string(from: NSNumber(value: max))!
+        numberFormatter.minimumIntegerDigits = 1
+        scope.text = "範圍： " + numberFormatter.string(from: NSNumber(value: min))! + " ~ " + numberFormatter.string(from: NSNumber(value: max))!
     }
 }
 
@@ -169,15 +187,7 @@ extension ChartVC: ChartViewProtocol {
         let sortedList = m.mList?.sorted(by: { $0.date.compare($1.date) == .orderedAscending })
         drawChartView(mList: sortedList!)
         updateScopeValue(max: m.duration_max, min: m.duration_min)
+        dismissLoadingView()
     }
-    
-    func startLoading() {
-        
-    }
-    
-    func finishLoading() {
-        
-    }
-    
     
 }

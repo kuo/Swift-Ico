@@ -9,6 +9,6 @@
 import Foundation
 
 @objc protocol BaseViewProtocol: NSObjectProtocol {
-    func startLoading()
-    func finishLoading()
+//    func startLoading()
+//    func finishLoading()
 }

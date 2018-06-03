@@ -42,6 +42,8 @@
 		CB001B4020B7077C0029598F /* ChartViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B3F20B7077C0029598F /* ChartViewPresenter.swift */; };
 		CB001B4220B709020029598F /* ChartViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B4120B709020029598F /* ChartViewProtocol.swift */; };
 		CB001B4520B9106C0029598F /* DurationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B4420B9106C0029598F /* DurationDataModel.swift */; };
+		CB001B4720BEF6320029598F /* icon_up_down_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CB001B4620BEF6320029598F /* icon_up_down_arrow.png */; };
+		CB001B4920C437A90029598F /* GPAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB001B4820C437A90029598F /* GPAlertController.swift */; };
 		CB06B722209B520500739571 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB06B721209B520500739571 /* AppDelegate.swift */; };
 		CB06B724209B520500739571 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB06B723209B520500739571 /* ViewController.swift */; };
 		CB06B727209B520500739571 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB06B725209B520500739571 /* Main.storyboard */; };
@@ -88,6 +90,8 @@
 		CB001B3F20B7077C0029598F /* ChartViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewPresenter.swift; sourceTree = "<group>"; };
 		CB001B4120B709020029598F /* ChartViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewProtocol.swift; sourceTree = "<group>"; };
 		CB001B4420B9106C0029598F /* DurationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationDataModel.swift; sourceTree = "<group>"; };
+		CB001B4620BEF6320029598F /* icon_up_down_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_up_down_arrow.png; sourceTree = "<group>"; };
+		CB001B4820C437A90029598F /* GPAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAlertController.swift; sourceTree = "<group>"; };
 		CB06B71E209B520500739571 /* IcoCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IcoCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB06B721209B520500739571 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB06B723209B520500739571 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 		CB001AF7209DBFA40029598F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CB001B4620BEF6320029598F /* icon_up_down_arrow.png */,
 				CB001B3420AE00B50029598F /* icon_litecoin.png */,
 				CB001B3120ADFEE70029598F /* ethereum.png */,
 				CB001B3020ADFEE70029598F /* mithril.png */,
@@ -232,6 +237,7 @@
 			children = (
 				CB001B2020AB4EEA0029598F /* TokenTableVC.swift */,
 				CB001B3B20B053600029598F /* ChartVC.swift */,
+				CB001B4820C437A90029598F /* GPAlertController.swift */,
 			);
 			path = vcs;
 			sourceTree = "<group>";
@@ -357,6 +363,7 @@
 				CB06B729209B520500739571 /* Assets.xcassets in Resources */,
 				CB001AF9209DBFB60029598F /* bar_chart.png in Resources */,
 				CB001B0220A351740029598F /* img_arrow.png in Resources */,
+				CB001B4720BEF6320029598F /* icon_up_down_arrow.png in Resources */,
 				CB001B2820AC912B0029598F /* bitcoin.png in Resources */,
 				CB06B727209B520500739571 /* Main.storyboard in Resources */,
 				CB001B2E20ADFE450029598F /* litecoin.png in Resources */,
@@ -441,6 +448,7 @@
 				CB001B0C20A4A34A0029598F /* BasePresenter.swift in Sources */,
 				CB001B1F20AB4DA20029598F /* MainNavigator.swift in Sources */,
 				CB001B0F20A4A3B10029598F /* BaseViewProtocol.swift in Sources */,
+				CB001B4920C437A90029598F /* GPAlertController.swift in Sources */,
 				CB001B1120A4A3F10029598F /* MainViewProtocol.swift in Sources */,
 				CB001B4520B9106C0029598F /* DurationDataModel.swift in Sources */,
 				CB001B2620AC8F090029598F /* ChooseTokenCell.swift in Sources */,

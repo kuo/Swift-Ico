@@ -26,6 +26,8 @@ class ChooseTokenCell: UITableViewCell {
         self.contentView.backgroundColor = UIColor.black
         
         tokenIcon.image = UIImage(named:"bitcoin")
+        tokenIcon.layer.masksToBounds = true
+        tokenIcon.layer.cornerRadius = 25
         self.addSubview(tokenIcon)
         tokenIcon.snp.makeConstraints { (make) in
             make.width.height.equalTo(50)

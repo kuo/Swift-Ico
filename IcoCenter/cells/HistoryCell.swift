@@ -27,7 +27,7 @@ class HistoryCell: UITableViewCell {
         self.contentView.backgroundColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_gray_9)
         
         dateLabel.numberOfLines = 0
-        dateLabel.textColor = UIColor.black
+        dateLabel.textColor = UIColor.white
         self.addSubview(dateLabel)
         dateLabel.snp.makeConstraints { (make) in
             make.top.equalTo(self).offset(10)
@@ -37,8 +37,8 @@ class HistoryCell: UITableViewCell {
         }
         
         priceLabel.numberOfLines = 0
-        priceLabel.textColor = UIColor.black
-        priceLabel.text = "88888.99"
+        priceLabel.textColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_orange)
+        priceLabel.text = ""
         priceLabel.textAlignment = .center
         self.addSubview(priceLabel)
         priceLabel.snp.makeConstraints { (make) in
@@ -49,15 +49,14 @@ class HistoryCell: UITableViewCell {
         }
         
         gainsLabel.numberOfLines = 0
-        gainsLabel.textColor = UIColor.black
-        gainsLabel.text = "-8888.99%"
+        gainsLabel.text = ""
         gainsLabel.textAlignment = .right
         self.addSubview(gainsLabel)
         gainsLabel.snp.makeConstraints { (make) in
             make.top.equalTo(self).offset(10)
             make.bottom.equalTo(self).offset(-10)
             make.width.equalTo(self).multipliedBy(0.33)
-            make.right.equalToSuperview().offset(-10)
+            make.right.equalToSuperview().offset(-35)
         }
         
     }
@@ -75,7 +74,12 @@ class HistoryCell: UITableViewCell {
     func updateData(data:DayData) {
         dateLabel.text = data.date
         priceLabel.text = String(data.price_usd)
-        gainsLabel.text = data.percent_change_24h
+        gainsLabel.text = data.percent_change_24h + "%"
+        if data.percent_change_24h.starts(with: "-") {
+            gainsLabel.textColor = UIColor.green
+        } else {
+            gainsLabel.textColor = UIColor.red
+        }
     }
     
 }

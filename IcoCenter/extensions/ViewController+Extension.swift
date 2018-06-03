@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import PKHUD
 
 extension UIViewController {
     
@@ -20,5 +21,14 @@ extension UIViewController {
     
     func setNavigationTitle(title:String) {
         self.navigationItem.title = title
+    }
+    
+    func startLoadingView() {
+        PKHUD.sharedHUD.contentView = PKHUDProgressView()
+        PKHUD.sharedHUD.show()
+    }
+    
+    func dismissLoadingView() {
+        PKHUD.sharedHUD.hide()
     }
 }

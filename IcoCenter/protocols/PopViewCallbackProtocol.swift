@@ -10,5 +10,5 @@ import Foundation
 import UIKit
 
 @objc protocol PopViewCallbackProtocol: NSObjectProtocol {
-    func chooseTokenComplete(vc: UIViewController)
+    func chooseTokenComplete(vc: UIViewController, token: String!)
 }

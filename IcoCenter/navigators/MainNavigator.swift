@@ -31,7 +31,7 @@ struct AppNavigator:AppNavigation {
         
         fromVC.navigationController?.pushViewController(toVC, animated: true)
         
-        toVC.view.backgroundColor = UIColor.white
+        toVC.view.backgroundColor = UIColor.black
         toVC.navigationController?.navigationBar.tintColor = UIColor.white
         let backButton = UIBarButtonItem()
         backButton.title = "返回"

@@ -14,7 +14,7 @@ class MainViewPresenter: BasePresenter {
 
     func getCurrentPrice(token:String!) {
         //view?.startLoading()
-        apiProvider.request(WebApiService.CurrentPrice(tokenName: "bitcoin")) { (result) in
+        apiProvider.request(WebApiService.CurrentPrice(tokenName: token)) { (result) in
             if case let .success(response) = result {
                 let data = try? response.mapJSON()
                 let json = JSON(data!)
@@ -30,7 +30,7 @@ class MainViewPresenter: BasePresenter {
     }
     
     func getLastDaysExchangeData(token:String!) {
-        apiProvider.request(WebApiService.LaseFiveDaysExchangeData(tokenName: "bitcoin")) { (result) in
+        apiProvider.request(WebApiService.LaseFiveDaysExchangeData(tokenName: token)) { (result) in
             if case let .success(response) = result {
                 let data = try? response.mapJSON()
                 let json = JSON(data!)

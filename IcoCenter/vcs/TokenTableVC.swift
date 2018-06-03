@@ -19,6 +19,7 @@ class TokenTableVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setNavigationTitle(title: "選擇幣別")
         setNavigationBackButton(title: "返回")
         
         tableview.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
@@ -56,10 +57,9 @@ class TokenTableVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("click name = \(tokenArray[indexPath.row])")
-        //self.navigationController?.popViewController(animated: true)
-        //self.callBack?.chooseTokenComplete(vc: self)
+        
         if let delegate = self.callBack {
-            delegate.chooseTokenComplete(vc: self)
+            delegate.chooseTokenComplete(vc: self, token: tokenArray[indexPath.row])
         }
     }
 }

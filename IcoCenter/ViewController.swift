@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 import DynamicColor
 import Moya
+import PKHUD
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PopViewCallbackProtocol {
     
@@ -27,8 +28,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         let moreButton = UIBarButtonItem(image: UIImage(named: "icon_more")?.withRenderingMode(.alwaysOriginal), landscapeImagePhone: nil, style: .done, target: self, action: #selector(playTapped))
         self.navigationItem.rightBarButtonItems = [moreButton]
-        setNavigationTitle(title: "報幣(BitCoin)")
-        //self.navigationItem.title = "報幣(BitCoin)"
+        initTitleBar()
+        
+        
+        self.view.backgroundColor = UIColor.black
         
         tableview.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
         tableview.delegate = self
@@ -57,8 +60,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     //delegate: 選擇查詢貨幣種類
-    func chooseTokenComplete(vc: UIViewController) {
+    func chooseTokenComplete(vc: UIViewController, token: String) {
         self.navigationController?.popToViewController(self, animated: true)
+        queryTokenName = token
+        initTitleBar()
+        getCurrentPriceByToken(token: queryTokenName)
+    }
+    
+    func initTitleBar() {
+        setNavigationTitle(title: "報幣(" + queryTokenName + ")" )
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,7 +84,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let cell = ExchangeCell(style: .default, reuseIdentifier: "ExchangeCell")
             guard self.mCurrentPriceModel != nil else {return cell}
             
-            cell.updateExchangeRate(model: self.mCurrentPriceModel)
+            cell.updateExchangeRate(model: self.mCurrentPriceModel, token: queryTokenName)
             return cell
         }
         else if(indexPath.section == 2) {
@@ -233,7 +243,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 2 {
             if indexPath.row >= self.mLatestDaysData.count {
-                navigate(nav: MainNavigator.moreInfoAboutToken(token: "bitcoin"))
+                navigate(nav: MainNavigator.moreInfoAboutToken(token: self.queryTokenName))
             }
         }
     }
@@ -249,6 +259,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func getCurrentPriceByToken(token:String!) {
+        startLoadingView()
         presenter.getCurrentPrice(token: token)
     }
     
@@ -264,25 +275,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 
 extension ViewController: MainViewProtocol {
-    func onReceiceLatestDaysData(dataList: [DayData]) {
-        self.mLatestDaysData = dataList
-        updateUI()
-    }
     
     func onReceiveCurrentPrice(price: CurrentPriceModel) {
         self.mCurrentPriceModel = price
         getLatestDaysDataByToken(token: queryTokenName)
-        
     }
     
-    func startLoading() {
-        
+    func onReceiceLatestDaysData(dataList: [DayData]) {
+        dismissLoadingView()
+        self.mLatestDaysData = dataList
+        updateUI()
     }
-    
-    func finishLoading() {
-        
-    }
-    
-    
 }
 

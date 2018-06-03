@@ -8,12 +8,17 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ExchangeCell: UITableViewCell, UITextFieldDelegate {
     
     var editTokenValue = UITextField()
     var editUsdValue = UITextField()
     var usdExchangeRate:Double = 0
+    
+    let disposeBag = DisposeBag()
+    let tokenName = UILabel()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -23,7 +28,51 @@ class ExchangeCell: UITableViewCell, UITextFieldDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-       
+        
+        initView()
+        initTextFieldObserve()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if(textField == self.editTokenValue) {
+            if range.location >= 10 {
+                return false
+            } else {
+                return true
+            }
+        }
+        
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+    }
+    
+    func updateExchangeRate(model:CurrentPriceModel?, token:String!) {
+        guard let data = model else {return}
+        
+        self.usdExchangeRate = Double(data.priceUsd)!
+        
+        editTokenValue.text = "1"
+        editUsdValue.text = data.priceUsd
+        
+        //print("\(TokenObject(rawValue: token)?.description)")
+        tokenName.text = TokenObject(rawValue: token)?.description as String!
+    }
+    
+    func initView() {
         self.contentView.backgroundColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_gray_9)
         
         //Token 欄位
@@ -37,7 +86,7 @@ class ExchangeCell: UITableViewCell, UITextFieldDelegate {
         }
         
         let tokenNameField = UIView()
-        tokenNameField.backgroundColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_gray_4)
+        tokenNameField.backgroundColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_gray_5)
         tokenView.addSubview(tokenNameField)
         tokenNameField.snp.makeConstraints { (make) in
             make.left.equalTo(tokenView.snp.left)
@@ -45,9 +94,9 @@ class ExchangeCell: UITableViewCell, UITextFieldDelegate {
             make.centerY.equalToSuperview()
         }
         
-        let tokenName = UILabel()
+        
         tokenName.text = "BTC"
-        tokenName.textColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_orange)
+        tokenName.textColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_white_50)
         tokenName.textAlignment = .center
         tokenName.font = tokenName.font.withSize(14)
         tokenName.sizeToFit()
@@ -57,8 +106,8 @@ class ExchangeCell: UITableViewCell, UITextFieldDelegate {
         }
         
         
-        editTokenValue.backgroundColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_header_bg)
-        editTokenValue.textColor = UIColor.white
+        editTokenValue.backgroundColor = UIColor.white
+        editTokenValue.textColor = UIColor.black
         editTokenValue.keyboardType = .decimalPad
         editTokenValue.returnKeyType = .done
         editTokenValue.delegate = self
@@ -73,7 +122,7 @@ class ExchangeCell: UITableViewCell, UITextFieldDelegate {
         }
         
         let img = UIImageView()
-        img.image = UIImage(named:"img_arrow")
+        img.image = UIImage(named:"icon_up_down_arrow")
         self.addSubview(img)
         img.snp.makeConstraints { (make) in
             make.width.height.equalTo(25)
@@ -92,7 +141,7 @@ class ExchangeCell: UITableViewCell, UITextFieldDelegate {
         }
         
         let usdNameField = UIView()
-        usdNameField.backgroundColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_gray_4)
+        usdNameField.backgroundColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_gray_5)
         usdView.addSubview(usdNameField)
         usdNameField.snp.makeConstraints { (make) in
             make.left.equalTo(usdView.snp.left)
@@ -102,7 +151,7 @@ class ExchangeCell: UITableViewCell, UITextFieldDelegate {
         
         let dollarName = UILabel()
         dollarName.text = "USD"
-        dollarName.textColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_orange)
+        dollarName.textColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_white_50)
         dollarName.textAlignment = .center
         dollarName.font = dollarName.font.withSize(14)
         dollarName.sizeToFit()
@@ -111,8 +160,8 @@ class ExchangeCell: UITableViewCell, UITextFieldDelegate {
             make.center.equalToSuperview()
         }
         
-        editUsdValue.backgroundColor = UIColor(hexString:GlobalDefine.GPColors.kColor_theme_header_bg)
-        editUsdValue.textColor = UIColor.white
+        editUsdValue.backgroundColor = UIColor.white
+        editUsdValue.textColor = UIColor.black
         editUsdValue.keyboardType = .decimalPad
         editUsdValue.returnKeyType = .done
         editUsdValue.delegate = self
@@ -127,39 +176,27 @@ class ExchangeCell: UITableViewCell, UITextFieldDelegate {
         }
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    func initTextFieldObserve() {
+        //監聽使用者輸入Token數量
+        editTokenValue.rx.text.orEmpty.asObservable()
+            .subscribe(onNext: {
+                guard let inputValue = Double($0) else {return}
+                
+                print("匯率：\(self.usdExchangeRate*inputValue)")
+                
+                self.editUsdValue.text = String(self.usdExchangeRate*inputValue)
+            })
+            .disposed(by: disposeBag)
         
-        // Configure the view for the selected state
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        if(textField == self.editTokenValue) {
-            if range.location >= 7 {
-                return false
-            } else {
-                return true
-            }
-        }
-        
-        return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
-    }
-    
-    func updateExchangeRate(model:CurrentPriceModel?) {
-        guard let data = model else {return}
-        
-        self.usdExchangeRate = Double(data.priceUsd)!
-        
-        editTokenValue.text = "1"
-        editUsdValue.text = data.priceUsd
+        //監聽使用者輸入美金數量
+        editUsdValue.rx.text.orEmpty.asObservable()
+            .subscribe(onNext: {
+                guard let inputValue = Double($0) else {return}
+                let exchangedValue = inputValue/self.usdExchangeRate
+                print("匯率：\(exchangedValue)")
+                
+                self.editTokenValue.text = String(exchangedValue)
+            })
+            .disposed(by: disposeBag)
     }
 }

@@ -30,4 +30,15 @@ enum TokenObject:String {
         }
         
     }
+    
+    var description : String {
+        switch self {
+            case .btc: return "BTC"
+            case .eth: return "ETH"
+            case .btccash: return "BCH"
+            case .ltc: return "LTC"
+            case .mith: return "MITH"
+        }
+    }
+    
 }
