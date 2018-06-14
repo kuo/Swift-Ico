@@ -91,9 +91,9 @@ class CurrentInfoCell: UITableViewCell {
         }
         
         if data.percentChange_24h.starts(with: "-") {
-            string_gains_24hr = NSAttributedString(string: data.percentChange_1h + "%", attributes: stringAttributesDown)
+            string_gains_24hr = NSAttributedString(string: data.percentChange_24h + "%", attributes: stringAttributesDown)
         } else {
-            string_gains_24hr = NSAttributedString(string: data.percentChange_1h + "%", attributes: stringAttributesUp)
+            string_gains_24hr = NSAttributedString(string: data.percentChange_24h + "%", attributes: stringAttributesUp)
         }
         
         let attrString_1h = NSMutableAttributedString()

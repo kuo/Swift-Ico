@@ -103,6 +103,11 @@ class ChartVC: UIViewController, ChartDelegate {
             self.present(GPAlertController.actionSheet(title: "", msg: "區間", buttons: queryDuration, tapBlock: { (action, index) -> Void in
                 
                 print("index = \(index)")
+                let queryType = index
+                if queryType != 0 {
+                    self.startLoadingView()
+                    self.presenter.getDurationData(token: self.mTokenName, type: queryType)
+                }
                 
                 
             }), animated: true, completion: nil)
@@ -150,11 +155,20 @@ class ChartVC: UIViewController, ChartDelegate {
                 data.append((x: index, y: element.price_usd))
             }
             
-            label.append(Double(index))
-            labelsAsString.append(mList[index].date)
+            if mList.count >= 10 {
+                if(index % 5 == 0) {
+                    label.append(Double(index))
+                    labelsAsString.append(mList[index].date)
+                }
+            } else {
+                label.append(Double(index))
+                labelsAsString.append(mList[index].date)
+            }
+            
         }
         
         let series = ChartSeries(data: data)
+        chart.removeAllSeries()
         chart.add(series)
         chart.xLabels = label
         chart.xLabelsFormatter = { (labelIndex: Int, labelValue: Double) -> String in
